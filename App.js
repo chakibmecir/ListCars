@@ -21,14 +21,14 @@ export default class App extends React.Component {
 
   render() {
   return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
           <View style={styles.searchContainer}>
           <SearchCars />
           </View>
-          <View style={styles.CarsList}> 
+          <View style={styles.CarsList}>
             <ListCars />
           </View>
-        </View>
+        </SafeAreaView>
   );
   };
 };
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     flex: 0.9,
     backgroundColor: '#FFF'
   }
-  
+
 });
 
 
