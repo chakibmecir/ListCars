@@ -1,51 +1,22 @@
+import * as React from 'react';
+import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import WithCars from './Screens/WithCars';
+import NoCars from './Screens/NoCars';
+import NoInternet from './Screens/NoInternet';
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  FlatList,
-} from 'react-native';
+const Tab = createBottomTabNavigator();
 
-
-import SearchCars from './Components/SearchCars'
-import ListCars from './Components/ListCars'
-
-
-
-export default class App extends React.Component {
-
-  render() {
+export default function App() {
   return (
-        <View style={styles.container}>
-          <View style={styles.searchContainer}>
-          <SearchCars />
-          </View>
-          <View style={styles.CarsList}> 
-            <ListCars />
-          </View>
-        </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="with cars" component={WithCars} />
+        <Tab.Screen name="no cars" component={NoCars} />
+        <Tab.Screen name="no cnx" component={NoInternet} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
-  };
-};
-
-const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    backgroundColor: '#FFF',
-  },
-  searchContainer:{
-    flex: 0.1,
-  },
-  CarsList:{
-    flex: 0.9,
-    backgroundColor: '#FFF'
-  }
-  
-});
-
-
+}
